@@ -1,0 +1,113 @@
+body
+{
+	font-family: 'Courier New', Courier, monospace;
+	text-align: center;
+}
+
+hr
+{
+	width: 500px;
+}
+
+#game_board
+{
+	width: 400px;
+	height: 400px;
+	background-color: rgb(171, 214, 171);
+	border: 6px solid rgb(74, 68, 66);
+	margin: 0 auto;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.tile
+{
+	width: 90px;
+	height: 90px;
+	border: 5px solid rgb(74, 68, 66);
+	font-size: 40px;
+	font-weight: bold;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/*Tiles_colors - thanks copilot!*/
+
+.x2
+{
+	background-color: rgb(217, 253, 164);
+	color: rgb(137, 137, 137);
+}
+
+.x4
+{
+	background-color: rgb(175, 232, 89);
+	color: rgb(255, 255, 255);
+}
+
+.x8
+{
+	background-color: rgb(87, 110, 52);
+	color: rgb(255, 255, 255);
+}
+
+.x16
+{
+	background-color: rgb(48, 76, 7);
+	color: rgb(213, 213, 213);
+}
+
+.x32
+{
+	background-color: rgb(34, 139, 34);
+	color: rgb(255, 255, 255);
+}
+
+.x64
+{
+	background-color: rgb(0, 128, 0);
+	color: rgb(255, 255, 255);
+}
+
+.x128
+{
+	background-color: rgb(0, 100, 0);
+	color: rgb(255, 255, 255);
+}
+
+.x256
+{
+	background-color: rgb(0, 80, 0);
+	color: rgb(255, 255, 255);
+}
+
+.x512
+{
+	background-color: rgb(0, 60, 0);
+	color: rgb(255, 255, 255);
+}
+
+.x1024
+{
+	background-color: rgb(0, 40, 0);
+	color: rgb(255, 255, 255);
+}
+
+.x2048
+{
+	background-color: rgb(0, 20, 0);
+	color: rgb(255, 255, 255);
+}
+
+.x4096
+{
+	background-color: rgb(0, 10, 0);
+	color: rgb(255, 255, 255);
+}
+
+.x8192
+{
+	background-color: rgb(0, 0, 0);
+	color: rgb(255, 255, 255);
+}
