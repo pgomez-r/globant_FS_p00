@@ -9,11 +9,16 @@
 	</head>
 
 	<body>
-		<h1>ft_2048</h1>
+		<h1>FT_2048</h1>
 		<hr>
-		<h2>Score: <span id="score">0</span></h2>
-		<div id="game_board">
-	
+		<h2>SCORE: <span id="score">0</span></h2>
+		<div id="game_board"></div>
+		<div id="overlay">
+			<div>
+				<p id="overlay-message"></p>
+				<button onclick="restartGame()">Restart</button>
+			</div>
 		</div>
+		<button id="restart-home" onclick="restartGame()">Restart</button>
 	</body>
 </html>

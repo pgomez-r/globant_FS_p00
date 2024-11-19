@@ -2,6 +2,8 @@ body
 {
 	font-family: 'Courier New', Courier, monospace;
 	text-align: center;
+	margin: 0;
+	padding: 0;
 }
 
 hr
@@ -20,6 +22,38 @@ hr
 	flex-wrap: wrap;
 }
 
+#overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 2em;
+	z-index: 1000;
+	display: none;
+}
+
+#overlay button {
+	margin-top: 20px;
+	padding: 10px 20px;
+	font-size: 1em;
+}
+
+#restart-home
+{
+	margin-top: 10px;
+}
+
+#game_board.faded {
+	filter: grayscale(100%);
+	opacity: 0.5;
+}
+
 .tile
 {
 	width: 90px;
@@ -33,7 +67,6 @@ hr
 }
 
 /*Tiles_colors - thanks copilot!*/
-
 .x2
 {
 	background-color: rgb(217, 253, 164);

@@ -47,7 +47,7 @@ function	hasEmptyTile()
 
 function	addTwo()
 {
-	if (!hasEmptyTile)
+	if (!hasEmptyTile())
 		return ;
 
 	let	found = false;
@@ -81,34 +81,42 @@ function	updateTile(tile, num)
 	}
 }
 
+function showOverlay(message)
+{
+	document.getElementById("overlay-message").innerText = message;
+	document.getElementById("overlay").style.display = "flex";
+	document.getElementById("game_board").classList.add("faded");
+}
+
+function restartGame()
+{
+	location.reload();
+}
+
 document.addEventListener("keyup", (e) => {
+	if (!canMove())
+		return (showOverlay("Game over"));
+	else if (score >= 2048)
+		return (showOverlay("You win!"));
 	if (e.code == "ArrowLeft")
 	{
 		if (moveLeft())
 			addTwo();
-		else
-			console.log("Game over");
 	}
 	else if (e.code == "ArrowRight")
 	{
 		if (moveRight())
 			addTwo();
-		else
-			console.log("Game over");
 	}
 	else if (e.code == "ArrowUp")
 	{
 		if (moveUp())
 			addTwo();
-		else
-			console.log("Game over");
 	}
 	else if (e.code == "ArrowDown")
 	{
 		if (moveDown())
 			addTwo();
-		else
-			console.log("Game over");
 	}
 	document.getElementById("score").innerText = score;
 })
@@ -187,7 +195,6 @@ function	moveRight()
 			}
 		}
 	}
-
 	let hasEmptyTile = board.some(row => row.includes(0));
 	return boardChanged || hasEmptyTile;
 }
@@ -246,4 +253,27 @@ function	moveDown()
 	}
 	let hasEmptyTile = board.some(row => row.includes(0));
 	return boardChanged || hasEmptyTile;
+}
+
+function	canMove(row)
+{
+	if (hasEmptyTile())
+		return(true);
+	for (let y = 0; y < rows; y++)
+	{
+		for (let x = 0; x < columns - 1; x++)
+		{
+			if (board[y][x] === board[y][x + 1])
+				return (true);
+	}
+	}
+	for (let x = 0; x < columns; x++)
+	{
+		for (let y = 0; y < rows - 1; y++)
+		{
+			if (board[y][x] === board[y + 1][x])
+				return (true);
+		}
+	}
+	return (false);
 }
