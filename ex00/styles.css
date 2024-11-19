@@ -6,17 +6,37 @@ body
 	padding: 0;
 }
 
-hr
-{
-	width: 500px;
+h1 {
+	margin: 10px auto;
+	padding: 0.25em;
+	width: 50%;
+	max-width: 500px;
+	background-color: #384738;
+	color: white;
+	border-radius: 0.2em;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.503);
+}
+
+h2 {
+	margin: 15px auto;
+	padding: 0.25em;
+	width: 20%;
+	max-width: 500px;
+	background-color: #399e3c;
+	color: white;
+	border-radius: 0.2em;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.503);
 }
 
 #game_board
 {
-	width: 400px;
-	height: 400px;
+	width: 90%;
+	max-width: 400px;
+	height: 90vw;
+	max-height: 400px;
 	background-color: rgb(171, 214, 171);
-	border: 6px solid rgb(74, 68, 66);
+	border: 5px;
+	border-radius: 5px;
 	margin: 0 auto;
 	display: flex;
 	flex-wrap: wrap;
@@ -38,15 +58,47 @@ hr
 	display: none;
 }
 
+#overlay-message {
+	font-size: 2.5em;
+	color: white;
+	text-align: center;
+	margin: 0;
+	padding: 0.5em;
+	background-color: rgba(0, 0, 0, 0.7);
+	border-radius: 0.25em;
+}
+
 #overlay button {
-	margin-top: 20px;
-	padding: 10px 20px;
+	margin-top: 1em;
+	padding: 0.5em 1em;
+	background-color: #5b5b5b;
+	color: white;
+	border: none;
+	border-radius: 0.5em;
 	font-size: 1em;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+
+#overlay button:hover {
+	background-color: #dc4949;
 }
 
 #restart-home
 {
-	margin-top: 10px;
+	margin-top: 1em;
+	padding: 0.5em 1em;
+	background-color: #5b5b5b;
+	color: white;
+	border: none;
+	border-radius: 0.5em;
+	font-size: 1em;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+
+#restart-home:hover {
+	background-color: #45a049;
 }
 
 #game_board.faded {
@@ -56,14 +108,38 @@ hr
 
 .tile
 {
-	width: 90px;
-	height: 90px;
-	border: 5px solid rgb(74, 68, 66);
-	font-size: 40px;
-	font-weight: bold;
+	width: 23%;
+	height: 23%;
+	margin: 1%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	font-size: 2em;
+	border-radius: 0.5em;
+	font-weight: bold;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 600px) {
+	h1 {
+		font-size: 1.5em;
+	}
+
+	h2 {
+		font-size: 1.2em;
+	}
+
+	.tile {
+		font-size: 1.5em;
+	}
+
+	#overlay {
+		font-size: 1.5em;
+	}
+
+	#overlay button {
+		font-size: 0.8em;
+	}
 }
 
 /*Tiles_colors - thanks copilot!*/

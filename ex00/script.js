@@ -95,27 +95,27 @@ function restartGame()
 
 document.addEventListener("keyup", (e) => {
 	if (!canMove())
-		return (showOverlay("Game over"));
-	else if (score >= 2048)
-		return (showOverlay("You win!"));
+		return (showOverlay("GAME OVER"));
+	else if (winCheck())
+		return (showOverlay("WELL DONE!"));
 	if (e.code == "ArrowLeft")
 	{
-		if (moveLeft())
+		if (moveLeft() && hasEmptyTile())
 			addTwo();
 	}
 	else if (e.code == "ArrowRight")
 	{
-		if (moveRight())
+		if (moveRight() && hasEmptyTile())
 			addTwo();
 	}
 	else if (e.code == "ArrowUp")
 	{
-		if (moveUp())
+		if (moveUp() && hasEmptyTile())
 			addTwo();
 	}
 	else if (e.code == "ArrowDown")
 	{
-		if (moveDown())
+		if (moveDown() && hasEmptyTile())
 			addTwo();
 	}
 	document.getElementById("score").innerText = score;
@@ -158,16 +158,14 @@ function	moveLeft()
 			updateTile(tile, num);
 		}
 	}
-	let boardChanged = false;
 	for (let y = 0; y < rows; y++) {
-		for (let x = 0; x < columns; x++) {
-			if (board[y][x] !== originalBoard[y][x]) {
-				boardChanged = true;
-			}
+		for (let x = 0; x < columns; x++)
+		{
+			if (board[y][x] !== originalBoard[y][x])
+				return (true);
 		}
 	}
-	let hasEmptyTile = board.some(row => row.includes(0));
-	return boardChanged || hasEmptyTile;
+	return (false);
 }
 
 function	moveRight()
@@ -187,16 +185,14 @@ function	moveRight()
 			updateTile(tile, num);
 		}
 	}
-	let boardChanged = false;
 	for (let y = 0; y < rows; y++) {
-		for (let x = 0; x < columns; x++) {
-			if (board[y][x] !== originalBoard[y][x]) {
-				boardChanged = true;
-			}
+		for (let x = 0; x < columns; x++)
+		{
+			if (board[y][x] !== originalBoard[y][x])
+				return (true);
 		}
 	}
-	let hasEmptyTile = board.some(row => row.includes(0));
-	return boardChanged || hasEmptyTile;
+	return (false);
 }
 
 function	moveUp()
@@ -214,16 +210,14 @@ function	moveUp()
 			updateTile(tile, num);
 		}
 	}
-	let boardChanged = false;
 	for (let y = 0; y < rows; y++) {
-		for (let x = 0; x < columns; x++) {
-			if (board[y][x] !== originalBoard[y][x]) {
-				boardChanged = true;
-			}
+		for (let x = 0; x < columns; x++)
+		{
+			if (board[y][x] !== originalBoard[y][x])
+				return (true);
 		}
 	}
-	let hasEmptyTile = board.some(row => row.includes(0));
-	return boardChanged || hasEmptyTile;
+	return (false);
 }
 
 function	moveDown()
@@ -243,16 +237,14 @@ function	moveDown()
 			updateTile(tile, num);
 		}
 	}
-	let boardChanged = false;
 	for (let y = 0; y < rows; y++) {
-		for (let x = 0; x < columns; x++) {
-			if (board[y][x] !== originalBoard[y][x]) {
-				boardChanged = true;
-			}
+		for (let x = 0; x < columns; x++)
+		{
+			if (board[y][x] !== originalBoard[y][x])
+				return (true);
 		}
 	}
-	let hasEmptyTile = board.some(row => row.includes(0));
-	return boardChanged || hasEmptyTile;
+	return (false);
 }
 
 function	canMove(row)
@@ -265,13 +257,26 @@ function	canMove(row)
 		{
 			if (board[y][x] === board[y][x + 1])
 				return (true);
-	}
+		}
 	}
 	for (let x = 0; x < columns; x++)
 	{
 		for (let y = 0; y < rows - 1; y++)
 		{
 			if (board[y][x] === board[y + 1][x])
+				return (true);
+		}
+	}
+	return (false);
+}
+
+function	winCheck()
+{
+	for (let y = 0; y < rows; y++)
+	{
+		for (let x = 0; x < columns - 1; x++)
+		{
+			if (board[y][x] === 2048)
 				return (true);
 		}
 	}
