@@ -25,6 +25,6 @@ This is a version of the game 2048 built using vanilla JavaScript, HTML, and CSS
 To run the game locally, simply clone the repository and open `ex00/index.html` file in your web browser.
 
 ```bash
-git clone https://github.com/yourusername/2048-game.git
+git clone https://github.com/pgomez-r/globant_FS_p00.git 2048-game
 cd 2048-game/ex00
 open index.html
